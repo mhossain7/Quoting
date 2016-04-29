@@ -7,7 +7,7 @@ using namespace std;
 
 void Profile::Deserialize( Json::Value& root )
 {
-	//reading vertex data
+	/// Read the vertex data
 	Json::Value vertexList = root["Vertices"];
 	Json::Value::Members& vertexIds = vertexList.getMemberNames();
 	int index = 0; 
@@ -30,7 +30,7 @@ void Profile::Deserialize( Json::Value& root )
 		m_nodes.push_back(point);
 	}
 
-	//reading edge data
+	/// Read the edge data
 	Json::Value edgeList = root["Edges"];
 	Json::Value::Members& edgeIds = edgeList.getMemberNames();
 	index = 0; 
@@ -106,7 +106,7 @@ Profile::Profile()
 
 Profile::~Profile()
 {
-	//clean up stroage
+	/// Clean up stroage
 	vector<Edge>().swap(m_segments);
 	vector<Vertex>().swap(m_nodes);
 }

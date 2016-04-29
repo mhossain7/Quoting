@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	//Take file input either from command line or from console
+	/// Take file input either from command line or from console
 	string fileName;
 	cout << "profile name: ";
 	if(argc > 1 ) {
@@ -18,7 +18,6 @@ int main(int argc, char* argv[])
 	else {
 		cin >> fileName;
 	}
-	//cout << endl;
 	cout << fileName << endl;
 
 

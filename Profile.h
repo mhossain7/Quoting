@@ -1,12 +1,8 @@
-#ifndef PROFILE_H
-#define PROFILE_H
-
 #pragma once
 
 #include <vector>
 #include "IJsonDeserializable.h"
 #include "Edge.h"
-
 
 class Profile: public IJsonDeserializable
 {
@@ -37,5 +33,3 @@ private:
 	std::vector<Edge>	m_segments;	// the edge array
 	std::vector<Vertex> m_nodes;	// the vertex array
 };
-
-#endif

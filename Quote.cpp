@@ -21,7 +21,6 @@ double Quote::GetQuote(Profile& profile)
 	double cuttingCost = Quote::s_machiningCost * m_cuttingTime;
 
 	double stockArea = (m_boundingWidth + Quote::s_padding) * (m_boundingHeight + Quote::s_padding);
-	//m_stockArea += boundingArea;
 	double stockCost = Quote::s_materialCost * stockArea;
 
 	return cuttingCost + stockCost;
@@ -30,7 +29,6 @@ double Quote::GetQuote(Profile& profile)
 void Quote::TraverseSegments(const vector<Edge>& segments)
 {
 	m_cuttingTime = 0;
-	//m_stockArea = 0;
 
 	for(vector<Edge>::const_iterator it = segments.begin(); it != segments.end(); ++it)
 	{
@@ -54,10 +52,9 @@ void Quote::TraverseSegments(const vector<Edge>& segments)
 			double cutterSpeedInCircularArc = Quote::s_cutterSpeed * exp( -1.0 / radius );
 			m_cuttingTime += lengthTraversed / cutterSpeedInCircularArc;
 
-			//check if the circular arc is exterior, if so add the area contributed by the segment
+			/// Check if the circular arc is exterior, if so add the area contributed by the segment
 			if(clockwiseNode == end)
 			{
-				//m_stockArea += radius * (2*radius);	
 				double startX, startY, endX, endY;
 				start->GetPosition( startX, startY);
 				end->GetPosition( endX, endY);
@@ -88,5 +85,4 @@ void Quote::ComputeBoudingBox(const std::vector<Vertex>& nodes)
 	}
 	m_boundingWidth = x_max - x_min;
 	m_boundingHeight = y_max - y_min;
-	//return (x_max - x_min + Quote::s_padding) * (y_max - y_min + Quote::s_padding);
 }

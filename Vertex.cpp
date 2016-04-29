@@ -10,7 +10,6 @@ m_id(id), m_pos(pos)
 {
 }
 
-
 double Vertex::MeasureDistance(Vertex target) 
 {
 	double dis = 0.0;
